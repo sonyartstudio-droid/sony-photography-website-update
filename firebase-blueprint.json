@@ -1,0 +1,54 @@
+{
+  "entities": {
+    "bookings": {
+      "title": "Booking",
+      "description": "Wedding photography and cinematography customer bookings and dates",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique booking reference ID (e.g. SONY-2026-8104)" },
+        "customerName": { "type": "string", "description": "Primary client name" },
+        "brideName": { "type": "string", "description": "Bride name" },
+        "groomName": { "type": "string", "description": "Groom name" },
+        "mobile": { "type": "string", "description": "Client contact mobile number" },
+        "whatsapp": { "type": "string", "description": "WhatsApp number" },
+        "email": { "type": "string", "description": "Client email address" },
+        "weddingDate": { "type": "string", "description": "Main wedding date (YYYY-MM-DD)" },
+        "eventDate": { "type": "string", "description": "Event start date (YYYY-MM-DD)" },
+        "eventType": { "type": "string", "description": "Ceremony/Event type" },
+        "venue": { "type": "string", "description": "Venue name" },
+        "city": { "type": "string", "description": "City/Town" },
+        "selectedPackage": { "type": "string", "description": "Chosen photography package" },
+        "packagePrice": { "type": "number", "description": "Agreed package price in INR" },
+        "numberOfEvents": { "type": "number", "description": "Number of booked events" },
+        "specialRequirements": { "type": "string", "description": "Client special notes" },
+        "advancePayment": { "type": "number", "description": "Token/Advance amount paid in INR" },
+        "remainingAmount": { "type": "number", "description": "Outstanding balance due in INR" },
+        "bookingNotes": { "type": "string", "description": "Internal studio notes" },
+        "status": { "type": "string", "description": "Booking status: CONFIRMED, HOLD, COMPLETED, CANCELLED" },
+        "createdAt": { "type": "string", "description": "Creation timestamp or date string" },
+        "invoiceNumber": { "type": "string", "description": "Tax invoice number" },
+        "agreementNumber": { "type": "string", "description": "Legal contract number" },
+        "paymentMethod": { "type": "string", "description": "Payment mode used" },
+        "functions": {
+          "type": "array",
+          "description": "Itemized list of ceremony functions",
+          "items": { "type": "object" }
+        }
+      },
+      "required": ["id", "customerName", "weddingDate", "status"]
+    },
+    "calendarDateOverrides": {
+      "title": "Calendar Date Override",
+      "description": "Studio calendar manual date status overrides and blackout dates",
+      "type": "object",
+      "properties": {
+        "date": { "type": "string", "description": "Date formatted as YYYY-MM-DD" },
+        "status": { "type": "string", "description": "Calendar status: AVAILABLE, BOOKED, HOLD" },
+        "notes": { "type": "string", "description": "Reason or client notes for date status" },
+        "updatedAt": { "type": "string", "description": "Last modified timestamp" }
+      },
+      "required": ["date", "status"]
+    }
+  },
+  "firestoreRules": "rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    match /{document=**} {\n      allow read, write: if true;\n    }\n  }\n}"
+}

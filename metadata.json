@@ -1,0 +1,6 @@
+{
+  "name": "Sony Photography Sirhind",
+  "description": "Professional Wedding Photography, Cinematic Films & Booking System for Sony Photography Sirhind, Punjab.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
